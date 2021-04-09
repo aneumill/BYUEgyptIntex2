@@ -1,34 +1,35 @@
 ﻿@model Microsoft.AspNetCore.Identity.IdentityUser
 
-
-
-<h1>Edit Profile</h1>
-
-
-
-<form asp-action="SubmitEdits" method="post">
-    <label>Email:</label>
-    <input class="form-control" value="@Model.Id" type="hidden" name="UserId" />
-    <input class="form-control" value="@Model.Email" name="newEmail" />
+<br /><br /><br />
+<div class="container">
+    <h1>Edit Profile</h1>
 
 
 
-    <label>Role:</label>
-    <input class="form-control" value="@ViewBag.Role" type="hidden" name="Role" />
-    <select class="form-control" name="newRole">
-       
-         <option value="Admin">Admin</option>
-         <option value="User">User</option> 
-         <option value="Unassigned">Unassigned</option>
-                                
-                              
+    <form asp-action="SubmitEdits" method="post">
+        <label>Email:</label>
+        <input class="form-control" value="@Model.Id" type="hidden" name="UserId" />
+        <input class="form-control" value="@Model.Email" name="newEmail" />
 
 
 
-    </select>
+        <label>Role:</label>
+        <input class="form-control" value="@ViewBag.Role" type="hidden" name="Role" />
+        <select class="form-control" name="newRole">
+
+            <option value="Admin">Admin</option>
+            <option value="User">User</option>
+            <option value="Unassigned">Unassigned</option>
 
 
 
-    <br />
-    <button type="submit" class="form-control">Submit Edits</button>
-</form>
+
+
+        </select>
+
+
+
+        <br />
+        <button type="submit" class="form-control">Submit Edits</button>
+    </form>
+</div>

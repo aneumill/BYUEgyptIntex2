@@ -3,86 +3,88 @@
 *@
 @{
 }
-
-<h1>Admin</h1>
-<table class="table table-striped table-bordered">
-    <thead>
-        <tr>
-            <td>Id</td>
-            <td>Name</td>
-            <td>Change Priveledges</td>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var user in ViewBag.Admin)
-        {
+<br /> <br /> <br />
+<div class="container">
+    <h1>Admin</h1>
+    <table class="table table-striped table-bordered">
+        <thead>
             <tr>
-                <td>@user.Id</td>
-                <td>@user.Email</td>
-                <td>
-                    <form asp-action="EditRole">
-                        <input type="hidden" value="@user.Id" name="user" />
-                        <input type="hidden" value="Admin" name="role" />
-                        <button type="submit">Edit User</button>
-                    </form>
-                </td>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Change Priveledges</td>
             </tr>
-}
-    </tbody>
-</table>
-<h1>Users</h1>
-<table class="table table-striped table-bordered">
-    <thead>
-        <tr>
-            <td>Id</td>
-            <td>Name</td>
-            <td>Change Priveledges</td>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var user in ViewBag.User)
-        {
+        </thead>
+        <tbody>
+            @foreach (var user in ViewBag.Admin)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.Email</td>
+                    <td>
+                        <form asp-action="EditRole">
+                            <input type="hidden" value="@user.Id" name="user" />
+                            <input type="hidden" value="Admin" name="role" />
+                            <button type="submit">Edit User</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <h1>Users</h1>
+    <table class="table table-striped table-bordered">
+        <thead>
             <tr>
-                <td>@user.Id</td>
-                <td>@user.Email</td>
-                <td>
-                    <form asp-action="EditRole">
-                        <input type="hidden" value="@user.Id" name="user" />
-                        <input type="hidden" value="User" name="role" />
-                        <button type="submit">Edit User</button>
-                    </form>
-                </td>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Change Priveledges</td>
             </tr>
-}
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var user in ViewBag.User)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.Email</td>
+                    <td>
+                        <form asp-action="EditRole">
+                            <input type="hidden" value="@user.Id" name="user" />
+                            <input type="hidden" value="User" name="role" />
+                            <button type="submit">Edit User</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
-<h1>Unassigned Users</h1>
-<table class="table table-striped table-bordered">
-    <thead>
-        <tr>
-            <td>Id</td>
-            <td>Name</td>
-            <td>Change Priveledges</td>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var user in ViewBag.Unassigned)
-        {
+    <h1>Unassigned Users</h1>
+    <table class="table table-striped table-bordered">
+        <thead>
             <tr>
-                <td>@user.Id</td>
-                <td>@user.Email</td>
-                <td>
-                    <form asp-action="EditRole">
-                        <input type="hidden" value="@user.Id" name="user" />
-                        <input type="hidden" value="Unassigned" name="role" />
-                        <button type="submit">Edit User</button>
-                    </form>
-                </td>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Change Priveledges</td>
             </tr>
-}
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var user in ViewBag.Unassigned)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.Email</td>
+                    <td>
+                        <form asp-action="EditRole">
+                            <input type="hidden" value="@user.Id" name="user" />
+                            <input type="hidden" value="Unassigned" name="role" />
+                            <button type="submit">Edit User</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
 
 
+</div>

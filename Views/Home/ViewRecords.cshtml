@@ -3,59 +3,62 @@
 @inject UserManager<IdentityUser> UserManager
 @model BYUEgyptIntex2.Models.ViewModels.ViewRecordViewModel
 
-<h1>This is the view records page</h1>
 
 
-<div>
-    <h1 class="text-center"></h1>
-</div>
-<div class="text-center">
-    <table class="table table-dark table-striped ">
-        <thead>
-            <tr>
-                <th>MummyID</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Body Part</th>
-                @if (SignInManager.IsSignedIn(User) && User.IsInRole("User"))
-                {
-                    <th>Edit</th>
-                }
-                @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-                {
-                    <th>Edit</th>
-                    <th>Delete</th>
-                }
+<br /> <br /><br />
 
-
-        </thead>
-        <tbody>
-
-
-            @foreach (var x in Model.Mummy)
-
-            {
-
-                //See the MyMovieSummary file for the partial view
-                <partial name="EntrySummary" model="x" />
-            }
-
-
-
-
-        </tbody>
-
-    </table>
-    @if (SignInManager.IsSignedIn(User) && User.IsInRole("User") || User.IsInRole("Admin"))
-    {
+    <div class=" container text-center">
         <div>
-            <a class="btn btn-dark" asp-action="AddRecord" method="post">Add A Record</a>
+            <h1>This is the view records page</h1>
         </div>
-    }
-    <div>
+        <table class="table table-dark table-striped ">
+            <thead>
+                <tr>
+                    <th>MummyID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Body Part</th>
+                    @if (SignInManager.IsSignedIn(User) && User.IsInRole("User"))
+                    {
+                        <th>Edit</th>
+                    }
+                    @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                    {
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    }
 
-        <partial name="PaginationSummary" />
 
+            </thead>
+            <tbody>
+
+
+                @foreach (var x in Model.Mummy)
+
+                {
+
+                    //See the MyMovieSummary file for the partial view
+                    <partial name="EntrySummary" model="x" />
+                }
+
+
+
+
+            </tbody>
+
+        </table>
+        @if (SignInManager.IsSignedIn(User) && User.IsInRole("User") || User.IsInRole("Admin"))
+        {
+            <div>
+                <a class="btn btn-dark" asp-action="AddRecord" method="post">Add A Record</a>
+            </div>
+        }
+        <div>
+
+            <partial name="PaginationSummary" />
+
+        </div>
+
+        </
     </div>
-
-</div>
+   
