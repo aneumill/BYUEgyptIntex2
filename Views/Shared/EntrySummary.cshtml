@@ -1,0 +1,53 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model BYUEgyptIntex2.Models.MummyModel
+
+
+<tr>
+    <td>@Model.MummyID </td>
+    <td>@Model.Name</td>
+    <td>@Model.Age</td>
+    <td>@Model.BodyPart</td>
+
+    @if (SignInManager.IsSignedIn(User) && User.IsInRole("Manager"))
+    {
+        <td>
+            <form method="post">
+
+                <span class="card-text p1">
+                    <button class="btn btn-info" type="submit">Edit</button>
+
+                </span>
+            </form>
+        </td>
+    }
+    @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+    {
+
+        <td>
+            <form id="@Model.MummyID" method="post">
+                <span class="card-text p1">
+                    <button class="btn btn-info" type="submit">Edit</button>
+                    <input type="hidden" asp-for="MummyID" />
+                    <input type="hidden" asp-for="Name" />
+                    <input type="hidden" asp-for="Age" />
+                    <input type="hidden" asp-for="BodyPart" />
+
+                </span>
+            </form>
+        </td>
+        <td>
+            <form id="@Model.MummyID" asp-action="RemoveRecord" method="post">
+                <span class="card-text p1">
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                    <input type="hidden" asp-for="MummyID" />
+                    <input type="hidden" asp-for="Name" />
+                    <input type="hidden" asp-for="Age" />
+                    <input type="hidden" asp-for="BodyPart" />
+                </span>
+            </form>
+        </td>
+
+    }
+</tr>

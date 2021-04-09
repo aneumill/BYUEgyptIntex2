@@ -1,0 +1,36 @@
+﻿@model Microsoft.AspNetCore.Identity.IdentityUser
+
+
+
+<h1>Edit Profile</h1>
+
+
+
+<form asp-action="SubmitEdits" method="post">
+    <label>Email:</label>
+    <input class="form-control" value="@Model.Id" type="hidden" name="UserId" />
+    <input class="form-control" value="@Model.Email" name="newEmail" />
+
+
+
+    <label>Role:</label>
+    <input class="form-control" value="@ViewBag.Role" type="hidden" name="Role" />
+    <select class="form-control" name="newRole">
+        @if (ViewBag.Role == "Admin")
+        {
+        <option selected value="Admin">Admin</option>
+                <option value="User">User</option> }
+                            else if (ViewBag.Role == "User")
+                            {
+                <option value="Admin">Admin</option>
+                                <option value="Researcher" selected>Researcher</option>}
+
+
+
+    </select>
+
+
+
+    <br />
+    <button type="submit" class="form-control">Submit Edits</button>
+</form>
