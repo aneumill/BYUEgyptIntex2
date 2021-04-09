@@ -36,6 +36,7 @@ namespace BYUEgyptIntex2.Controllers
         {
             ViewBag.Admin = userManager.GetUsersInRoleAsync("Admin").Result;
             ViewBag.User = userManager.GetUsersInRoleAsync("User").Result;
+            ViewBag.Unassigned = userManager.GetUsersInRoleAsync("Unassigned").Result;
 
             return View();
         }
@@ -66,6 +67,8 @@ namespace BYUEgyptIntex2.Controllers
 
             ViewBag.User = userManager.GetUsersInRoleAsync("User").Result;
             ViewBag.Admin = userManager.GetUsersInRoleAsync("Admin").Result;
+            ViewBag.Unassigned = userManager.GetUsersInRoleAsync("Unassigned").Result;
+
 
 
 
