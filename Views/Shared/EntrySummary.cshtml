@@ -10,7 +10,7 @@
     <td>@Model.Age</td>
     <td>@Model.BodyPart</td>
 
-    @if (SignInManager.IsSignedIn(User) && User.IsInRole("Manager"))
+    @if (SignInManager.IsSignedIn(User) && User.IsInRole("User"))
     {
         <td>
             <form method="post">

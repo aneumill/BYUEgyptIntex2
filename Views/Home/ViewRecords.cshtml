@@ -17,7 +17,7 @@
                 <th>Name</th>
                 <th>Age</th>
                 <th>Body Part</th>
-                @if (SignInManager.IsSignedIn(User) && User.IsInRole("Manager"))
+                @if (SignInManager.IsSignedIn(User) && User.IsInRole("User"))
                 {
                     <th>Edit</th>
                 }
@@ -46,14 +46,16 @@
         </tbody>
 
     </table>
+    @if (SignInManager.IsSignedIn(User) && User.IsInRole("User") || User.IsInRole("Admin"))
+    {
+        <div>
+            <a class="btn btn-dark" asp-action="AddRecord" method="post">Add A Record</a>
+        </div>
+    }
     <div>
 
         <partial name="PaginationSummary" />
 
-    </div>
-
-    <div>
-        <a class="btn btn-dark" asp-action="AddRecord" method="post">Add A Record</a>
     </div>
 
 </div>

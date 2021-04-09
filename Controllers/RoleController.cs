@@ -19,19 +19,19 @@ namespace BYUEgyptIntex2.Controllers
             this.roleManager = roleManager;
             this.userManager = userManager;
         }
-        [Authorize(Policy = "readpolicy")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             var roles = roleManager.Roles.ToList();
             return View(roles);
         }
-        [Authorize(Policy = "writepolicy")]
+        [Authorize(Roles = "Admin")]
         public IActionResult CreateRole()
         {
             return View(new IdentityRole());
         }
 
-       
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UserRoles()
         {
             ViewBag.Admin = userManager.GetUsersInRoleAsync("Admin").Result;
@@ -40,7 +40,7 @@ namespace BYUEgyptIntex2.Controllers
 
             return View();
         }
-
+        [Authorize(Roles = "Admin")]
         public IActionResult EditRole(string user, string role)
         {
             var selectedUser = userManager.FindByIdAsync(user);
@@ -48,6 +48,7 @@ namespace BYUEgyptIntex2.Controllers
             return View(selectedUser.Result);
 
         }
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> SubmitEdits(string UserId, string newEmail, string Role, string NewRole)
         {
